@@ -8,7 +8,17 @@
 
  Create as many sidebars as you want.
  */
-
+ module.exports = {
+  tutorialSidebar: [
+    'intro',
+    'hello',
+    {
+      type: 'category',
+      label: 'Tutorial',
+      items: ['tutorial-basics/create-a-document'],
+    },
+  ],
+};
 // @ts-check
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
