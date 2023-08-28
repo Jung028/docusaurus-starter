@@ -78,6 +78,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           { to: '/about', label: 'About', position: 'left' }, // Add this line
+          { to: '/automarking', label: 'AutoMarking', position: 'left' }, // Add this line
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
