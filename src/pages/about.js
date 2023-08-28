@@ -1,29 +1,41 @@
 import React from 'react';
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import AboutpageFeatures from '@site/src/components/AboutpageFeatures';
+
 import styles from './index.module.css';
 
-function AutoMarking() {
-  const { siteConfig } = useDocusaurusContext();
+function AboutpageHeader() {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <div className="container">
+        <h1 className="hero__title">{siteConfig.title}</h1>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/intro">
+            Docusaurus Tutorial - 5min ⏱️
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
 
+export default function Home() {
+  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`AutoMarking Demo - ${siteConfig.title}`}
-      description={`Schedule a demo for AutoMarking by ${siteConfig.title}`}>
-      <main className={clsx(styles.main, styles.centered)}>
-        <div className={styles.demoButtonContainer}>
-          <h1>Schedule a Demo for AutoMarking</h1>
-          <p>Fill in the details below to schedule a demo of our AutoMarking software:</p>
-
-          {/* Add your form elements here */}
-          {/* For example, input fields for name, email, etc. */}
-          
-          <button className={styles.demoButton}>Get a Demo</button>
-        </div>
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />">
+      <AboutpageHeader />
+      <main>
+        <AboutpageFeatures />
       </main>
     </Layout>
   );
 }
-
-export default AutoMarking;
