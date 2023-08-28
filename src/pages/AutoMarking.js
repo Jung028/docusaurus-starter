@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import styles from './styles.module.css'; // Make sure to update the path to your styles
+import styles from './index.module.css';
 
 function AutoMarking() {
   const { siteConfig } = useDocusaurusContext();

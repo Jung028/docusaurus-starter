@@ -1,53 +1,29 @@
 import React from 'react';
 import clsx from 'clsx';
-import styles from './styles.module.css';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import styles from './index.module.css';
 
-const AboutList = [
-  {
-    title: 'Our Mission',
-    Svg: require('@site/static/img/undraw_mission.svg').default,
-    description: (
-      <>
-        We are dedicated to providing cutting-edge solutions for automated marking in the education industry.
-      </>
-    ),
-  },
-  {
-    title: 'Our Team',
-    Svg: require('@site/static/img/undraw_team.svg').default,
-    description: (
-      <>
-        Our team consists of experienced professionals who are passionate about revolutionizing education technology.
-      </>
-    ),
-  },
-  // Add more sections as needed
-];
+function AutoMarking() {
+  const { siteConfig } = useDocusaurusContext();
 
-function AboutSection({Svg, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
+    <Layout
+      title={`AutoMarking Demo - ${siteConfig.title}`}
+      description={`Schedule a demo for AutoMarking by ${siteConfig.title}`}>
+      <main className={clsx(styles.main, styles.centered)}>
+        <div className={styles.demoButtonContainer}>
+          <h1>Schedule a Demo for AutoMarking</h1>
+          <p>Fill in the details below to schedule a demo of our AutoMarking software:</p>
 
-export default function About() {
-  return (
-    <section className={styles.about}>
-      <div className="container">
-        <div className="row">
-          {AboutList.map((props, idx) => (
-            <AboutSection key={idx} {...props} />
-          ))}
+          {/* Add your form elements here */}
+          {/* For example, input fields for name, email, etc. */}
+          
+          <button className={styles.demoButton}>Get a Demo</button>
         </div>
-      </div>
-    </section>
+      </main>
+    </Layout>
   );
 }
+
+export default AutoMarking;
