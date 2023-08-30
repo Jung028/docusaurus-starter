@@ -41,4 +41,24 @@
   .demoButton:hover {
     background-color: #3773b4;
   }
+
+  .required::after {
+    content: '*';
+    color: red;
+    position: relative;
+    margin-left: 5px;
+  }
+  
+  .required[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background-color: #ffcccc;
+    color: red;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1;
+    bottom: -30px;
+    left: 0;
+    white-space: nowrap;
+  }
   

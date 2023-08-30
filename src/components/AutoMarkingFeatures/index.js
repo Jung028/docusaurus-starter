@@ -22,10 +22,43 @@ function AutoMarkingFeatures() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission logic here
+  
+    // Get all the input elements in the form
+    const formInputs = event.target.querySelectorAll('input[required]');
+  
+    // Check if any required fields are empty
+    let hasEmptyRequiredField = false;
+    formInputs.forEach((input) => {
+      if (!input.value.trim()) {
+        input.setCustomValidity('This field is required');
+        hasEmptyRequiredField = true;
+      } else {
+        input.setCustomValidity('');
+      }
+    });
+  
+    // If any required fields are empty, prevent form submission
+    if (hasEmptyRequiredField) {
+      return;
+    }
+  
+    // Prepare form data
+    const formData = new FormData(event.target);
+  
+    // Make Axios POST request
+    try {
+      const response = await axios.post('/.netlify/functions/schedule-demo', formData);
+      console.log('Response from server:', response.data);
+      // Provide user feedback based on the response if needed
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error and provide user feedback if needed
+    }
   };
+  
+
 
   return (
     <div className={styles.card}>

@@ -8541,6 +8541,11 @@ optipng-bin@^5.0.0:
     bin-wrapper "^4.0.0"
     logalot "^2.0.0"
 
+oracledb@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.npmjs.org/oracledb/-/oracledb-6.0.3.tgz"
+  integrity sha512-szsaTgEcVpmGwi5sCHLXvvpoL5ZJIE69wSOBpclsGO5XX6QMce6KRr+R+t68ihns+8MV4A0J4oeR6efCfxScrg==
+
 os-filter-obj@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/os-filter-obj/-/os-filter-obj-2.0.0.tgz"
