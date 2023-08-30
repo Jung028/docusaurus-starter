@@ -7,9 +7,9 @@ exports.handler = async (event) => {
 
     // Database connection configuration
     const connection = await oracledb.getConnection({
-      user: 'aedamjung@gmail.com',     // Replace with your Oracle username
-      password: 'Remember121314$', // Replace with your Oracle password
-      connectString: 'your-connect-string' // Replace with your Oracle connect string
+      user: 'adam',             // Replace with your database username
+      password: '1234',         // Replace with your database password
+      connectString: 'database1', // Replace with your database connection string
     });
 
     // SQL query to insert data
@@ -18,16 +18,19 @@ exports.handler = async (event) => {
       VALUES (:firstName, :lastName, :jobTitle, :company, :email, :phone, :referral)
     `;
 
-    // Execute the query
-    const result = await connection.execute(insertQuery, {
+    // Bind values to query parameters
+    const binds = {
       firstName: formData.firstName,
       lastName: formData.lastName,
       jobTitle: formData.jobTitle,
       company: formData.company,
       email: formData.email,
       phone: formData.phone,
-      referral: formData.referral
-    }, { autoCommit: true });
+      referral: formData.referral,
+    };
+
+    // Execute the query
+    const result = await connection.execute(insertQuery, binds, { autoCommit: true });
 
     // Release the connection
     await connection.close();
