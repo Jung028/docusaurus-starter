@@ -141,7 +141,7 @@ function AutoMarkingFeatures() {
             type="text"
             id="phone"
             name="phone"
-            placeholder="Phone Number *"
+            placeholder="Phone number *"
             maxLength="255"
             aria-labelledby="LblLastName InstructLastName"
             className={clsx(styles.inputField, styles.required)}
